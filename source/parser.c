@@ -18,7 +18,7 @@ static void	init(t_pipex *core, char *av[], int ac, char *env[])
 	{
 		core->pipe[i] = malloc_V1e5(sizeof(int) * 2, core);
 		if (pipe(core->pipe[i]))
-			(destroy(core), peexit("pipex: ", 1, 'P'));
+			(destroy(core), peexit("pipex: ", 1, 'P', false));
 	}
 }
 

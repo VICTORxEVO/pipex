@@ -6,7 +6,7 @@
 /*   By: ysbai-jo <ysbai-jo@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 11:07:53 by ysbai-jo          #+#    #+#             */
-/*   Updated: 2024/05/12 12:55:39 by ysbai-jo         ###   ########.fr       */
+/*   Updated: 2024/05/12 15:37:02 by ysbai-jo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int main(int ac, char *av[], char *env[])
     {
         pid = fork();
         if (pid < 0)
-            (destroy(&core), peexit("pipex: ", 1, 'P'));
+            (destroy(&core), peexit("pipex: ", 1, 'P', false));
         else if (!pid)
             child_action(&core);
         else
