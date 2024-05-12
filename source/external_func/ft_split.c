@@ -6,7 +6,7 @@
 /*   By: ysbai-jo <ysbai-jo@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 11:50:16 by ysbai-jo          #+#    #+#             */
-/*   Updated: 2024/05/05 15:16:47 by ysbai-jo         ###   ########.fr       */
+/*   Updated: 2024/05/12 10:52:06 by ysbai-jo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ static char	**mem_error(char **arr)
 	return (NULL);
 }
 
-static char	*do_word(const char *s, const char x, int *q_resume)
+static char	*do_word(const char *s, const char x, int *q_resume, t_pipex *core)
 {
 	int		len;
 	char	*word;
@@ -57,9 +57,7 @@ static char	*do_word(const char *s, const char x, int *q_resume)
 	i = *q_resume;
 	while (s[i] && s[i++] != x)
 		len++;
-	word = (char *)malloc(sizeof(char) * (len + 1));
-	if (!word)
-		return (NULL);
+	word = malloc_V1e2(sizeof(char) * (len + 1), core);
 	i = 0;
 	while (s[*q_resume] && s[*q_resume] != x)
 	{
@@ -71,25 +69,36 @@ static char	*do_word(const char *s, const char x, int *q_resume)
 	return (word);
 }
 
-char	**ft_split(const char *s, char c)
+char **handle_null(t_pipex *core, char *s)
+{
+	char **arr;
+
+	if (!s)
+		return (NULL);
+	arr = malloc_V1e2(sizeof(char *) * 2, core);
+	arr[1] = 0;
+	arr[0] = malloc_V1e2(sizeof(char) * 1, core);
+	arr[0][0] = ' ';
+	return (arr);
+}
+
+char	**ft_split(const char *s, char c, t_pipex *core)
 {
 	char	**arr;
 	int		q_res;
 	int		wn;
 	int		i;
 
-	if (!s)
-		return (NULL);
+	if (!*s || !s)
+		return (handle_null(core, s));
 	wn = word_num(s, c);
-	arr = malloc(sizeof(char *) * (wn + 1));
-	if (!arr)
-		return (NULL);
+	arr = malloc_V1e2(sizeof(char *) * (wn + 1), core);
 	arr[wn] = 0;
 	q_res = 0;
 	i = 0;
 	while (i < wn)
 	{
-		arr[i] = do_word(s, c, &q_res);
+		arr[i] = do_word(s, c, &q_res, core);
 		if (!(arr[i]))
 			return (mem_error(arr));
 		i++;

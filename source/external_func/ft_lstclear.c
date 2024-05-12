@@ -6,15 +6,15 @@
 /*   By: ysbai-jo <ysbai-jo@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 18:37:32 by ysbai-jo          #+#    #+#             */
-/*   Updated: 2024/05/04 10:01:16 by ysbai-jo         ###   ########.fr       */
+/*   Updated: 2024/05/11 11:04:45 by ysbai-jo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/pipex.h"
 
-void	ft_lstclear(t_trash **lst)
+void	ft_lstclear(t_cmd **lst)
 {
-	t_trash	*tm;
+	t_cmd	*tm;
 
 	if (!lst)
 		return ;

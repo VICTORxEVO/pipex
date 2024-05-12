@@ -8,7 +8,7 @@ OBJ = $(SRC:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-		@$(CCF) -g -o $(NAME) $^
+		@$(CCF) $^ -o $@
 		@echo "compiling"
 		@sleep 0.5
 		@echo "pipex is ready"
