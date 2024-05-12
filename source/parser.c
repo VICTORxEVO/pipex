@@ -5,6 +5,7 @@ static void	init(t_pipex *core, char *av[], int ac, char *env[])
 	int i;
 
 	core->path = get_paths(env, core);
+	core->env = env;
 	core->n_cmd = ac - 3;
 	core->f_in = av[1];
 	core->f_out = av[ac - 1];

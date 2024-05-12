@@ -25,7 +25,7 @@ static t_cmd    *add_new_cmd(char *cmd_full, t_cmd **node, t_pipex *core)
     t_cmd *cmd_node;
 
     splited = ft_split(cmd_full, ' ', core);
-    cmd_node = ft_lstnew_cmd(splited, core);
+    cmd_node = ft_lstnew_cmd(splited, cmd_full, core);
     ft_lstadd_back(node, cmd_node);
     return (cmd_node);
 }
