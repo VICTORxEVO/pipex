@@ -6,7 +6,7 @@
 /*   By: ysbai-jo <ysbai-jo@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 11:07:53 by ysbai-jo          #+#    #+#             */
-/*   Updated: 2024/05/13 14:53:12 by ysbai-jo         ###   ########.fr       */
+/*   Updated: 2024/05/13 16:37:40 by ysbai-jo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,11 @@ int main(int ac, char *av[], char *env[])
         else
         {
             core.pids[core.i] = pid;
-            waitpid(pid, &status, 0);
+            // waitpid(pid, &status, 0);
             delete_1cmd(&core.cmd);
         }
     }
-    printf("herloo\n");
+    seal_all_p(core.pipe, &core);
     core.pids[core.i] = INT_MIN;
     parent_action(&core, &status);
 }
