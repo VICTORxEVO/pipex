@@ -25,9 +25,9 @@ static void	init(t_pipex *core, char *av[], int ac, char *env[])
 
 void	parser(int ac, char *av[], t_pipex *core, char *env[])
 {
-	if (ac != 5)
-		(puterr("pipex: usage <__input_file> <__cmd_1> <__cmd_2> <__output_file>\n"),
-			exit(EXIT_FAILURE));
+	// if (ac != 5)
+	// 	(puterr("pipex: usage <__input_file> <__cmd_1> <__cmd_2> <__output_file>\n"),
+	// 		exit(EXIT_FAILURE));
     init(core, av, ac, env);
 	// for (int i = 0;core->path[i];i++)
 	// 	printf("core->path[%d] -> %s\n", i, core->path[i]);

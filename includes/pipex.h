@@ -6,7 +6,7 @@
 /*   By: ysbai-jo <ysbai-jo@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 11:05:34 by ysbai-jo          #+#    #+#             */
-/*   Updated: 2024/05/13 11:37:29 by ysbai-jo         ###   ########.fr       */
+/*   Updated: 2024/05/13 18:29:24 by ysbai-jo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <errno.h>
 # include <sys/wait.h>
 # include <limits.h>
+
 //some macros
 # define WRITE_SIDE 1
 # define READ_SIDE  0
