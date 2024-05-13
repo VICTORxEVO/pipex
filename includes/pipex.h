@@ -6,7 +6,7 @@
 /*   By: ysbai-jo <ysbai-jo@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 11:05:34 by ysbai-jo          #+#    #+#             */
-/*   Updated: 2024/05/12 16:57:13 by ysbai-jo         ###   ########.fr       */
+/*   Updated: 2024/05/13 11:37:29 by ysbai-jo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <stdbool.h>
 # include <errno.h>
 # include <sys/wait.h>
-
+# include <limits.h>
 //some macros
 # define WRITE_SIDE 1
 # define READ_SIDE  0
@@ -66,6 +66,7 @@ int     ft_strncmp(const char *str1, const char *str2, size_t n);
 char	*get_next_line(int fd);
 void	puterr(char *s);
 void    ft_lstdelone(t_cmd *node);
+bool is_all_spaces(const char *s);
 
 //algo functions
 char **get_paths(char **env, t_pipex *core);
@@ -73,6 +74,14 @@ t_cmd   *get_cmds(int ac, char *av[], t_pipex *core);
 void	parser(int ac, char *av[], t_pipex *core, char *env[]);
 void    seal_unused_p(t_pipex *core);
 void	prepere_in_out(t_pipex *core);
+void	check_fin_fout(t_pipex *core);
+void	exec_cmd(t_pipex *core);
+void    dup2fd(int oldfd, int newfd, t_pipex *core);
+char	*get_valid_path(t_pipex *core, char **duptfull_paths);
+void    verify_cmd(char *path, t_pipex *core);
+void    child_action(t_pipex *core);
+void    seal_all_p(int **pipes, t_pipex *core);
+void    parent_action(t_pipex *core, int *status);
 
 
 

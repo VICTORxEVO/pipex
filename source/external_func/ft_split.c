@@ -6,7 +6,7 @@
 /*   By: ysbai-jo <ysbai-jo@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 11:50:16 by ysbai-jo          #+#    #+#             */
-/*   Updated: 2024/05/12 10:52:06 by ysbai-jo         ###   ########.fr       */
+/*   Updated: 2024/05/13 10:16:58 by ysbai-jo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,16 +69,20 @@ static char	*do_word(const char *s, const char x, int *q_resume, t_pipex *core)
 	return (word);
 }
 
-char **handle_null(t_pipex *core, char *s)
+char **handle_null_spaces(t_pipex *core, const char *s)
 {
 	char **arr;
-
+	
 	if (!s)
 		return (NULL);
 	arr = malloc_V1e2(sizeof(char *) * 2, core);
-	arr[1] = 0;
-	arr[0] = malloc_V1e2(sizeof(char) * 1, core);
-	arr[0][0] = ' ';
+	arr[1] = NULL;
+	if (is_all_spaces(s))
+	{
+		arr[0] = ft_strdup(s);
+		return (arr);
+	}
+	arr[0] = ft_strdup("");
 	return (arr);
 }
 
@@ -89,8 +93,8 @@ char	**ft_split(const char *s, char c, t_pipex *core)
 	int		wn;
 	int		i;
 
-	if (!*s || !s)
-		return (handle_null(core, s));
+	if (!*s || !s || is_all_spaces(s))
+		return (handle_null_spaces(core, s));
 	wn = word_num(s, c);
 	arr = malloc_V1e2(sizeof(char *) * (wn + 1), core);
 	arr[wn] = 0;

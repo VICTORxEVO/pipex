@@ -11,7 +11,7 @@ static char **get_full_path(char **path, char *cmd, t_pipex *core)
     i = 0;
     while (path[i])
         i++;
-    full_path = malloc_V1e5(sizeof(char *) * i + 1, core);
+    full_path = malloc_V1e2(sizeof(char *) * i + 1, core);
     i = -1;
     while (path[++i])
         full_path[i] = ft_strjoin(path[i], cmd, 'N', core);

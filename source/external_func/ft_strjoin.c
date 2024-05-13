@@ -6,7 +6,7 @@
 /*   By: ysbai-jo <ysbai-jo@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 11:55:29 by ysbai-jo          #+#    #+#             */
-/*   Updated: 2024/05/11 13:04:55 by ysbai-jo         ###   ########.fr       */
+/*   Updated: 2024/05/13 10:17:14 by ysbai-jo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_strjoin(char *s1, char *s2, char flag, t_pipex *core)
 		return (NULL);
 	s1_len = ft_strlen(s1);
 	s2_len = ft_strlen(s2);
-	new = malloc_V1e5(sizeof(char) * (s1_len + s2_len + 1), core);
+	new = malloc_V1e2(sizeof(char) * (s1_len + s2_len + 1), core);
 	if (!new)
 		return (NULL);
 	ft_memcpy(new, s1, s1_len);

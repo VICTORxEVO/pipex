@@ -2,13 +2,20 @@
 
 void	prepere_in_out(t_pipex *core)
 {
-	if (!core->i)
-		dup2fd(STDIN_FILENO, core->f_in, core),
-            dup2fd(STDOUT_FILENO,core->pipe[core->i][WRITE_SIDE], core);
+	if (core->i == 0)
+	{
+		(dup2fd(core->in_fd, STDIN_FILENO, core),
+            dup2fd(core->pipe[core->i][WRITE_SIDE], STDOUT_FILENO, core));
+	}	
 	else if (core->i == core->n_pipes)
-		(dup2fd(STDIN_FILENO, core->pipe[core->i - 1][READ_SIDE], core),
-			dup2fd(STDOUT_FILENO, core->f_out));
+	{
+		(dup2fd(core->pipe[core->i - 1][READ_SIDE], STDIN_FILENO, core),
+			dup2fd(core->out_fd, STDOUT_FILENO, core));
+	}
 	else
-		(dup2fd(STDIN_FILENO, core->pipe[core->i - 1][READ_SIDE], core),
-			dup2fd(STDOUT_FILENO, core->pipe[core->i][WRITE_SIDE], core));
+	{
+		(dup2fd(core->pipe[core->i - 1][READ_SIDE], STDIN_FILENO, core),
+			dup2fd(core->pipe[core->i][WRITE_SIDE], STDOUT_FILENO, core));
+	}
+		
 }

@@ -12,12 +12,11 @@ void	check_fin_fout(t_pipex *core)
             (destroy(core), peexit(ft_strjoin("pipex: ", core->f_in, 'N', core),
 					1, 'P', true));
 	}
-    else if (core->i = core->n_pipes)
-        // if (access(core->f_out, F_OK) || access(core->f_out, W_OK))
-		// 	(destroy(core), peexit(ft_strjoin("pipex: ", core->f_out, 'N', core),
-		// 			1, 'P', true));
-        core->in_fd = open(core->f_out, O_WRONLY | O_CREAT | O_TRUNC, 0666);
-        if (core->in_fd < 0)
+    else if (core->i == core->n_pipes)
+	{
+        core->out_fd = open(core->f_out, O_WRONLY | O_CREAT | O_TRUNC, 0666);
+        if (core->out_fd < 0)
             (destroy(core), peexit(ft_strjoin("pipex: ", core->f_out, 'N', core),
 					1, 'P', true));
+	}
 }
