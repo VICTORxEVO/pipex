@@ -2,8 +2,6 @@
 
 static void	init(t_pipex *core, char *av[], int ac, char *env[])
 {
-	int i;
-
 	core->path = get_paths(env, core);
 	core->env = env;
 	core->n_cmd = ac - 3;
@@ -12,15 +10,7 @@ static void	init(t_pipex *core, char *av[], int ac, char *env[])
 	core->cmd = get_cmds(core->n_cmd, av + 2, core);
 	core->pids = malloc_V1e2(sizeof(int) * core->n_cmd, core);
 	core->n_pipes = core->n_cmd - 1;
-	core->pipe = malloc_V1e2(sizeof(int *) * core->n_pipes + 1, core);
-	core->pipe[core->n_pipes] = NULL;
-	i = -1;
-	while (++i < core->n_pipes)
-	{
-		core->pipe[i] = malloc_V1e2(sizeof(int) * 2, core);
-		if (pipe(core->pipe[i]))
-			(destroy(core), peexit("pipex: ", 1, 'P', false));
-	}
+	create_pipes(core);
 }
 
 void	parser(int ac, char *av[], t_pipex *core, char *env[])

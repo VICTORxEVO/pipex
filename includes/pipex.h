@@ -6,7 +6,7 @@
 /*   By: ysbai-jo <ysbai-jo@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 11:05:34 by ysbai-jo          #+#    #+#             */
-/*   Updated: 2024/05/13 18:29:24 by ysbai-jo         ###   ########.fr       */
+/*   Updated: 2024/05/15 15:39:34 by ysbai-jo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,7 @@ void    verify_cmd(char *path, t_pipex *core);
 void    child_action(t_pipex *core);
 void    seal_all_p(int **pipes, t_pipex *core);
 void    parent_action(t_pipex *core, int *status);
+void create_pipes(t_pipex *core);
 
 
 
