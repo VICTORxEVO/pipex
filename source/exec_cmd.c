@@ -3,6 +3,7 @@
 void	exec_cmd(t_pipex *core)
 {
     char *valid_path;
+    char *fail;
 
     if (!core->cmd->duptfull_paths)
     {
@@ -14,7 +15,7 @@ void	exec_cmd(t_pipex *core)
         valid_path = get_valid_path(core, core->cmd->duptfull_paths);
         execve(valid_path, core->cmd->cmd_and_args, core->env);
     }
-    destroy(core);
-    exit(EXIT_FAILURE);
+    fail = ft_strjoin("pipex: ", core->cmd->str_cmd, 'N', core);
+    (destroy(core), peexit(fail, 1, 'P', true));
 }
 

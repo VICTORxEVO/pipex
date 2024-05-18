@@ -8,5 +8,6 @@ void    peexit(char *msg, int exit_code, char flag, bool free_or_not)
         puterr(msg);
     if (free_or_not == true)
         free(msg);
+    system("leaks pipex");
     exit(exit_code);
 }
