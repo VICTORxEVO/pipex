@@ -4,7 +4,7 @@ void create_pipes(t_pipex *core)
 {
     int i;
     
-    core->pipe = malloc_V1e2(sizeof(int *) * core->n_pipes + 1, core);
+    core->pipe = malloc_V1e2(sizeof(int *) * (core->n_pipes + 1), core);
 	core->pipe[core->n_pipes] = NULL;
 	i = -1;
 	while (++i < core->n_pipes)

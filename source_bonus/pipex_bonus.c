@@ -5,7 +5,6 @@ int main(int ac, char *av[], char *env[])
 {
     t_pipex core;
     int pid;
-    int status;
     
     parser(ac, av, &core, env);
     core.i = -1;
@@ -24,5 +23,5 @@ int main(int ac, char *av[], char *env[])
     }
     seal_all_p(core.pipe, &core);
     core.pids[core.i] = INT_MIN;
-    parent_action(&core, &status);
+    parent_action(&core);
 }

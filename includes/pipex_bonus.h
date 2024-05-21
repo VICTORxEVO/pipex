@@ -67,10 +67,10 @@ void	check_fin_fout(t_pipex *core);
 void	exec_cmd(t_pipex *core);
 void    dup2fd(int oldfd, int newfd, t_pipex *core);
 char	*get_valid_path(t_pipex *core, char **duptfull_paths);
-void    verify_cmd(char *path, t_pipex *core);
+void    verify_cmd(char *path, char *cmd, t_pipex *core);
 void    child_action(t_pipex *core);
 void    seal_all_p(int **pipes, t_pipex *core);
-void    parent_action(t_pipex *core, int *status);
+void    parent_action(t_pipex *core);
 void create_pipes(t_pipex *core);
 
 //here_doc functions

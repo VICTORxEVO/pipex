@@ -7,7 +7,7 @@ void	exec_cmd(t_pipex *core)
 
     if (!core->cmd->duptfull_paths)
     {
-        verify_cmd(core->cmd->cmd_and_args[0], core);
+        verify_cmd(core->cmd->cmd_and_args[0], core->cmd->str_cmd, core);
         execve(core->cmd->cmd_and_args[0], core->cmd->cmd_and_args, core->env);
     }
     else
