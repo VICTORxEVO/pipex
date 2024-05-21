@@ -19,7 +19,7 @@ $(NAME): $(OBJ)
 		@sleep 0.5
 		@echo "pipex is ready"
 
-bonus: $(OBJ)
+bonus: $(OBJ_B)
 		@$(CCF) $^ -o $(NAME_B)
 		@echo "compiling"
 		@sleep 0.5

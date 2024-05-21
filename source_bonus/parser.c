@@ -1,4 +1,4 @@
-#include "../includes/pipex.h"
+#include "../includes/pipex_bonus.h"
 
 static void	init(t_pipex *core, char *av[], int ac, char *env[])
 {
@@ -15,8 +15,17 @@ static void	init(t_pipex *core, char *av[], int ac, char *env[])
 void	parser(int ac, char *av[], t_pipex *core, char *env[])
 {
 	if (ac < 5)
-		(puterr("pipex: usage <__input_file> <__cmd_1> <__cmd_2> <__output_file>\n"),
+		(puterr("pipex: usage: <__input_file_> <__cmd_1_> <__cmd_2_> <__output_file_>\n"),
 			exit(EXIT_FAILURE));
+	if (!ft_strncmp(av[1], "here_doc", ft_strlen("here_doc")))
+	{
+		if (ac != 6)
+		{
+			puterr("pipex: usage: 'here_doc' <__LIMITER_> <__cmd_2_> <__output_file_>\n");
+			exit(EXIT_FAILURE);
+		}
+		here_doc(av + 2, core, env);
+	}
     init(core, av, ac, env);
 	create_pipes(core);
 	// for (int i = 0;core->path[i];i++)

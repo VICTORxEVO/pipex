@@ -1,4 +1,4 @@
-#include "../includes/pipex.h"
+#include "../includes/pipex_bonus.h"
 
 void    peexit(char *msg, int exit_code, char flag, bool free_or_not)
 {

@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   pipex.h                                            :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: ysbai-jo <ysbai-jo@student.1337.ma>        +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/30 11:05:34 by ysbai-jo          #+#    #+#             */
-/*   Updated: 2024/05/20 16:36:52 by ysbai-jo         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #ifndef PIPEX_H
 # define PIPEX_H
 
@@ -85,6 +73,16 @@ void    seal_all_p(int **pipes, t_pipex *core);
 void    parent_action(t_pipex *core, int *status);
 void create_pipes(t_pipex *core);
 
+//here_doc functions
+void    child_cmd1(t_pipex *core);
+void    close_pipes(int **pipes, t_pipex *core, char flag);
+void    here_doc(char *av[], t_pipex *core, char *env[]);
+void    parent_cmd2(t_pipex *core);
+void    read_line(t_pipex *core, char *limit);
+
+
+
+
 
 
 // clear functions
@@ -113,4 +111,12 @@ void    peexit(char *msg, int exit_code, char flag, bool free_or_not);
 
 
 
-#endif
+
+
+
+
+
+
+
+
+# endif

@@ -1,4 +1,4 @@
-#include "../includes/pipex.h"
+#include "../includes/pipex_bonus.h"
 
 static char **get_full_path(char **path, char *cmd, t_pipex *core)
 {
