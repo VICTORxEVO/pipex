@@ -2,8 +2,6 @@
 
 void    parent_cmd2(t_pipex *core)
 {
-    if (access(core->f_out, F_OK) || access(core->f_out, W_OK))
-        (destroy(core), peexit("pipex", 1, 'P', false));
     core->out_fd = open(core->f_out, O_WRONLY | O_CREAT | O_TRUNC, 0666);
     if (core->out_fd < 0)
         (destroy(core), peexit(ft_strjoin("pipex: ", core->f_out, 'N', core), 1, 'P', true));
