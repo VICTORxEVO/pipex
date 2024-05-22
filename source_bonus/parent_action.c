@@ -2,11 +2,14 @@
 
 void    parent_action(t_pipex *core)
 {
-    // int i;
     int status;
-    // i = -1;
-    // while (core->pids[++i] != INT_MIN)
-    waitpid(0, &status, 0);
+    int pid;
+    int i;
+
+    i = 0;
+    pid = waitpid(core->pids[i], &status, 0);
+    while (pid > 0 && ++i)
+        pid = waitpid(core->pids[i], &status, 0);
     destroy(core);
-    exit (status);
+    exit(status >> 8);
 }

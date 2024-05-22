@@ -6,7 +6,7 @@
 /*   By: ysbai-jo <ysbai-jo@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 11:07:53 by ysbai-jo          #+#    #+#             */
-/*   Updated: 2024/05/21 16:23:49 by ysbai-jo         ###   ########.fr       */
+/*   Updated: 2024/05/22 17:43:42 by ysbai-jo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,5 @@ int main(int ac, char *av[], char *env[])
         }
     }
     seal_all_p(core.pipe, &core);
-    core.pids[core.i] = INT_MIN;
     parent_action(&core);
 }

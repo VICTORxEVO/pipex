@@ -22,6 +22,5 @@ int main(int ac, char *av[], char *env[])
         }
     }
     seal_all_p(core.pipe, &core);
-    core.pids[core.i] = INT_MIN;
     parent_action(&core);
 }
