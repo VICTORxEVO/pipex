@@ -6,7 +6,7 @@
 /*   By: ysbai-jo <ysbai-jo@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 11:50:16 by ysbai-jo          #+#    #+#             */
-/*   Updated: 2024/05/28 09:09:30 by ysbai-jo         ###   ########.fr       */
+/*   Updated: 2024/05/28 14:34:13 by ysbai-jo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ static char	*do_word(const char *s, const char x, int *q_resume, t_pipex *core)
 	i = *q_resume;
 	while (s[i] && s[i++] != x)
 		len++;
-	word = malloc_V1e2(sizeof(char) * (len + 1), core);
+	word = malloc_v1e2(sizeof(char) * (len + 1), core);
 	i = 0;
 	while (s[*q_resume] && s[*q_resume] != x)
 	{
@@ -69,13 +69,13 @@ static char	*do_word(const char *s, const char x, int *q_resume, t_pipex *core)
 	return (word);
 }
 
-char **handle_null_spaces(t_pipex *core, const char *s)
+char	**handle_null_spaces(t_pipex *core, const char *s)
 {
-	char **arr;
-	
+	char	**arr;
+
 	if (!s)
 		return (NULL);
-	arr = malloc_V1e2(sizeof(char *) * 2, core);
+	arr = malloc_v1e2(sizeof(char *) * 2, core);
 	arr[1] = NULL;
 	if (is_all_spaces(s))
 	{
@@ -96,7 +96,7 @@ char	**ft_split(const char *s, char c, t_pipex *core)
 	if (!*s || !s || is_all_spaces(s))
 		return (handle_null_spaces(core, s));
 	wn = word_num(s, c);
-	arr = malloc_V1e2(sizeof(char *) * (wn + 1), core);
+	arr = malloc_v1e2(sizeof(char *) * (wn + 1), core);
 	arr[wn] = 0;
 	q_res = 0;
 	i = 0;

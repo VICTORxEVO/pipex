@@ -6,20 +6,20 @@
 /*   By: ysbai-jo <ysbai-jo@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 21:06:51 by ysbai-jo          #+#    #+#             */
-/*   Updated: 2024/05/28 09:08:58 by ysbai-jo         ###   ########.fr       */
+/*   Updated: 2024/05/28 14:27:26 by ysbai-jo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-void    delete_1cmd(t_cmd **lst)
+void	delete_1cmd(t_cmd **lst)
 {
-    t_cmd *tmp;
-    
-    if (*lst)
-    {
-        tmp = (*lst)->next;
-        ft_lstdelone(*lst);
-        (*lst) = tmp;
-    }
+	t_cmd	*tmp;
+
+	if (*lst)
+	{
+		tmp = (*lst)->next;
+		ft_lstdelone(*lst);
+		(*lst) = tmp;
+	}
 }

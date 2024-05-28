@@ -62,3 +62,5 @@ re: fclean all
 
 clear: all bonus clean
 
+norm :
+		@norminette $(SRC) $(SRC_B) includes/

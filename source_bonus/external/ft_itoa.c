@@ -6,7 +6,7 @@
 /*   By: ysbai-jo <ysbai-jo@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 13:30:01 by ysbai-jo          #+#    #+#             */
-/*   Updated: 2024/05/28 09:12:52 by ysbai-jo         ###   ########.fr       */
+/*   Updated: 2024/05/28 14:34:13 by ysbai-jo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ char	*ft_itoa(int n, t_pipex *core)
 		return (ft_strdup("0"));
 	n_pro = n;
 	f_len = calc_len(n_pro);
-	cp = malloc_V1e2(sizeof(char) * (f_len + 1), core);
+	cp = malloc_v1e2(sizeof(char) * (f_len + 1), core);
 	cp[f_len--] = 0;
 	if (n_pro < 0)
 	{
