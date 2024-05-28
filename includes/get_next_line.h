@@ -6,7 +6,7 @@
 /*   By: ysbai-jo <ysbai-jo@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 16:24:57 by ysbai-jo          #+#    #+#             */
-/*   Updated: 2024/05/05 15:27:54 by ysbai-jo         ###   ########.fr       */
+/*   Updated: 2024/05/27 18:12:02 by ysbai-jo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 typedef unsigned char	t_uc;
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 32
+#  define BUFFER_SIZE 1
 # endif
 
 char			*handle_it(char **q_res, int nl_ind, char **buff);

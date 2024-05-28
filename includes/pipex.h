@@ -6,7 +6,7 @@
 /*   By: ysbai-jo <ysbai-jo@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 11:05:34 by ysbai-jo          #+#    #+#             */
-/*   Updated: 2024/05/21 15:58:03 by ysbai-jo         ###   ########.fr       */
+/*   Updated: 2024/05/27 20:35:24 by ysbai-jo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <errno.h>
 # include <sys/wait.h>
 # include <limits.h>
-
+#include  <string.h>
 //some macros
 # define WRITE_SIDE 1
 # define READ_SIDE  0
@@ -67,7 +67,7 @@ int     ft_strncmp(const char *str1, const char *str2, size_t n);
 char	*get_next_line(int fd);
 void	puterr(char *s);
 void    ft_lstdelone(t_cmd *node);
-bool is_all_spaces(const char *s);
+bool    is_all_spaces(const char *s);
 
 //algo functions
 char **get_paths(char **env, t_pipex *core);

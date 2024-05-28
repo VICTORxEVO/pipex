@@ -1,0 +1,42 @@
+#include "pipex.h"
+
+void	check_fin_fout(t_pipex *core)
+{
+	if (!core->i)
+	{
+		if (access(core->f_in, F_OK) || access(core->f_in, R_OK))
+			(destroy(core), peexit(ft_strjoin("pipex: ", core->f_in, 'N', core),
+					1, 'P', true));
+        core->in_fd = open(core->f_in, O_RDONLY);
+        if (core->in_fd < 0)
+            (destroy(core), peexit(ft_strjoin("pipex: ", core->f_in, 'N', core),
+					1, 'P', true));
+	}
+    else if (core->i == core->n_pipes)
+	{
+        core->out_fd = open(core->f_out, O_WRONLY | O_CREAT | O_TRUNC, 0666);
+        if (core->out_fd < 0)
+            (destroy(core), peexit(ft_strjoin("pipex: ", core->f_out, 'N', core),
+					1, 'P', true));
+	}
+}
+
+void	prepere_in_out(t_pipex *core)
+{
+	if (core->i == 0)
+	{
+		(dup2fd(core->in_fd, STDIN_FILENO, core),
+            dup2fd(core->pipe[core->i][WRITE_SIDE], STDOUT_FILENO, core));
+	}	
+	else if (core->i > 0 && core->i < core->n_pipes)
+	{
+		(dup2fd(core->pipe[core->i - 1][READ_SIDE], STDIN_FILENO, core),
+			dup2fd(core->pipe[core->i][WRITE_SIDE], STDOUT_FILENO, core));
+	}
+	else
+	{
+		(dup2fd(core->pipe[core->i - 1][READ_SIDE], STDIN_FILENO, core),
+			dup2fd(core->out_fd, STDOUT_FILENO, core));
+	}
+		
+}

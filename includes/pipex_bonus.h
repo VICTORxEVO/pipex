@@ -55,10 +55,11 @@ int     ft_strncmp(const char *str1, const char *str2, size_t n);
 char	*get_next_line(int fd);
 void	puterr(char *s);
 void    ft_lstdelone(t_cmd *node);
-bool is_all_spaces(const char *s);
+bool    is_all_spaces(const char *s);
+char	*ft_itoa(int n, t_pipex *core);
 
 //algo functions
-char **get_paths(char **env, t_pipex *core);
+char    **get_paths(char **env, t_pipex *core);
 t_cmd   *get_cmds(int n_cmd, char *av[], t_pipex *core);
 void	parser(int ac, char *av[], t_pipex *core, char *env[]);
 void    seal_unused_p(t_pipex *core);
@@ -79,6 +80,7 @@ void    close_pipes(int **pipes, t_pipex *core, char flag);
 void    here_doc(char *av[], t_pipex *core, char *env[]);
 void    parent_cmd2(t_pipex *core);
 void    read_line(t_pipex *core, char *limit);
+void    print_null_err(int n_lines, char *limiter, t_pipex *core);
 
 
 
