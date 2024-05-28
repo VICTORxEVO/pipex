@@ -9,21 +9,22 @@ NAME_B= pipex_bonus
 CCF= cc -Wall -Wextra -Werror
 
 #mandatory
-SRC = $(shell find "source" -name "*.c")
+SRC = $(shell find "./source" -type f )
 OBJ = $(SRC:.c=.o)
 
 #bonus
-SRC_B = $(shell find "source_bonus" -name "*.c")
+SRC_B = $(shell find "./source_bonus" -type f )
 OBJ_B = $(SRC_B:.c=.o)
 
 #include header
 INC= -I includes
 
 #debuging
-ifeq ($(DEBUG), 1)
+ifeq ($(DEBUG), YES)
    GDB = -g
 endif
 
+.PHONY: all clean fclean re clear bonus
 
 all: $(NAME)
 
@@ -36,14 +37,14 @@ $(NAME): $(OBJ)
 
 
 bonus: $(OBJ_B)
-		@$(CCF) $^ -o $(NAME_B)
+		@$(CCF) $(INC) $^ -o $(NAME_B)
 		@echo "compiling"
 		@sleep 0.5
 		@echo "pipex_bonus is ready"
 
 
 %.o: %.c
-		@$(CCF) $(INC) $(GDB)-c $< -o $@ 
+		@$(CCF) $(GDB) $(INC) -c $< -o $@ 
 
 
 clean:
@@ -60,3 +61,4 @@ re: fclean all
 
 
 clear: all bonus clean
+

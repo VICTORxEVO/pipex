@@ -9,6 +9,9 @@ void	exec_cmd(t_pipex *core)
     {
         verify_cmd(core->cmd->cmd_and_args[0], core->cmd->str_cmd, core);
         execve(core->cmd->cmd_and_args[0], core->cmd->cmd_and_args, core->env);
+        if (open(core->cmd->cmd_and_args[0], __O_DIRECTORY))
+		(puterr("pipex: "), puterr(core->cmd->str_cmd), destroy(core),
+			peexit(": Is a directory\n", 126, 'W', false));
     }
     else
     {
