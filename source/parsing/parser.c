@@ -6,7 +6,7 @@
 /*   By: ysbai-jo <ysbai-jo@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 14:28:35 by ysbai-jo          #+#    #+#             */
-/*   Updated: 2024/05/28 14:41:06 by ysbai-jo         ###   ########.fr       */
+/*   Updated: 2024/05/29 18:15:46 by ysbai-jo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,6 @@ void	parser(int ac, char *av[], t_pipex *core, char *env[])
 		puterr("pipex: usage:");
 		puterr(" <__input_file> <__cmd_1> <__cmd_2> <__output_file>\n");
 		exit(EXIT_FAILURE);
-		init(core, av, ac, env);
 	}
+	init(core, av, ac, env);
 }
