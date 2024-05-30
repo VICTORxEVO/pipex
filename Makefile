@@ -7,6 +7,18 @@ NAME_B= pipex_bonus
 #cc compiler with all flags
 CCF= cc -Wall -Wextra -Werror
 
+#some colors and values
+RED := \033[0;31m
+GREEN := \033[0;32m
+YELLOW := \033[33;1m
+RESET := \033[0m
+CLEAR := \033[K
+RETURN := \r
+BOLD_PURPLE := \033[35;1m
+BOLD_UNDER_GREEN := \033[32;1;4m
+BOLD_GREEN := \033[32;1m
+
+
 #object directory for mandatory
 obj_dir = objects
 
@@ -108,13 +120,18 @@ all: $(NAME)
 
 $(NAME): $(obj)
 		@$(CCF)  $^ -o $@
-		@echo "compiling"
-		@sleep 0.5
-		@echo "$(NAME) is ready"
+		@echo -n "$(RETURN)$(CLEAR)"
+		@echo  -n "$(RETURN)$(BOLD_GREEN)Building the program... $(RESET)$(CLEAR)"
+		@sleep 0.63
+		@echo  "$(RETURN)$(BOLD_UNDER_GREEN)>>>>>>>$(NAME) program is ready<<<<<<<$(RESET)$(CLEAR)"
+		@sleep 0.3
+		@echo  "$(YELLOW)Usage: ./pipex infile cmd1 cmd2 outfile $(RESET)"
 
 $(obj_dir)/%.o: $(src)
 		@mkdir -p $(obj_dir)
+		@echo -n "$(RETURN)$(YELLOW)Compiling:  $(notdir $(filter %/$*.c, $(src)))....$(CLEAR)$(RESET)"
 		@$(CCF) $(GDB) $(INC) -c $(filter %/$*.c, $(src)) -o $@
+		@sleep 0.06
 
 #MANDATORY BUILD
 ##########################################
@@ -128,18 +145,21 @@ bonus: $(obj_b)
 
 $(obj_dir_b)/%.o: $(src_b)
 		@mkdir -p $(obj_dir_b)
+		@echo 
 		@$(CCF) $(GDB) $(INC) -c $(filter %/$*.c, $(src_b)) -o $@
 
 
 clean:
+		@echo  -n "$(YELLOW)Cleaning up...$(RESET)$(CLEAR)$(RETURN)"
 		@rm -rf $(obj_dir) $(obj_dir_b)
 		@rm -f $(obj) $(obj_b)
-		@echo "cleaning..."
+		@sleep 0.60
 
 
 fclean: clean
 		@rm -f $(NAME) $(NAME_B)
-		@echo "cleaning program..."
+		@echo "$(YELLOW)Cleaning up the program...$(RESET)"
+		@sleep 0.2
 
 
 re: fclean all
