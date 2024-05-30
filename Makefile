@@ -30,8 +30,8 @@ cl_dir = source/clear
 cl_files = malloc_v1e2 peexit destroy delete_1cmd 
 
 ext_dir = source/external
-ext_files = ft_lstadd_back ft_lstclear get_next_line_utils_bonus ft_lstnew_cmd ft_strncmp ft_lstdelone \
-ft_split get_next_line_bonus is_all_spaces ft_strdup puterr ft_strchr ft_strjoin 
+ext_files = ft_lstadd_back ft_lstclear ft_lstnew_cmd ft_strncmp ft_lstdelone \
+ft_split is_all_spaces ft_strdup puterr ft_strchr ft_strjoin get_next_line get_next_line_utils
 
 par_dir = source/parent
 par_files = seal_all_p create_pipes parent_action 
@@ -120,18 +120,16 @@ all: $(NAME)
 
 $(NAME): $(obj)
 		@$(CCF)  $^ -o $@
-		@echo -n "$(RETURN)$(CLEAR)"
 		@echo  -n "$(RETURN)$(BOLD_GREEN)Building the program... $(RESET)$(CLEAR)"
-		@sleep 0.63
-		@echo  "$(RETURN)$(BOLD_UNDER_GREEN)>>>>>>>$(NAME) program is ready<<<<<<<$(RESET)$(CLEAR)"
-		@sleep 0.3
-		@echo  "$(YELLOW)Usage: ./pipex infile cmd1 cmd2 outfile $(RESET)"
+		@sleep 0.68
+		@echo -n "$(RETURN)$(CLEAR)"
+		@echo "$(BOLD_UNDER_GREEN)>>>$(NAME) PROGRAM IS READY<<<$(RESET)\n$(YELLOW)Usage: ./pipex infile cmd1 cmd2 outfile $(RESET)"
 
 $(obj_dir)/%.o: $(src)
 		@mkdir -p $(obj_dir)
 		@echo -n "$(RETURN)$(YELLOW)Compiling:  $(notdir $(filter %/$*.c, $(src)))....$(CLEAR)$(RESET)"
 		@$(CCF) $(GDB) $(INC) -c $(filter %/$*.c, $(src)) -o $@
-		@sleep 0.06
+		@sleep 0.062
 
 #MANDATORY BUILD
 ##########################################
@@ -145,8 +143,9 @@ bonus: $(obj_b)
 
 $(obj_dir_b)/%.o: $(src_b)
 		@mkdir -p $(obj_dir_b)
-		@echo 
+		@echo -n "$(RETURN)$(YELLOW)Compiling:  $(notdir $(filter %/$*.c, $(src_b)))....$(CLEAR)$(RESET)"
 		@$(CCF) $(GDB) $(INC) -c $(filter %/$*.c, $(src_b)) -o $@
+		@sleep 0.062
 
 
 clean:
@@ -162,7 +161,7 @@ fclean: clean
 		@sleep 0.2
 
 
-re: fclean all
+re: fclean all bonus
 
 bre: fclean bonus
 
@@ -170,9 +169,14 @@ clear: all bonus clear
 		@rm -rf $(obj_dir) $(obj_dir_b)
 
 norm:
-		@norminette $(src) $(src_b) includes/
+		@norminette $(src)
+		@echo "----------------"
+		@norminette $(src_b)
+		@echo "----------------"
+		@norminette includes/
 
 show:
 	@echo $(src_b)
 	@echo "------------"
 	@echo $(obj_b)
+ 

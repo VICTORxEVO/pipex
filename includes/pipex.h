@@ -6,7 +6,7 @@
 /*   By: ysbai-jo <ysbai-jo@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 11:05:34 by ysbai-jo          #+#    #+#             */
-/*   Updated: 2024/05/28 15:03:31 by ysbai-jo         ###   ########.fr       */
+/*   Updated: 2024/05/30 14:53:30 by ysbai-jo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define PIPEX_H
 
 // needed libraries
-# include "get_next_line.h"
+# include <get_next_line.h>
 # include <errno.h>
 # include <limits.h>
 # include <stdbool.h>
