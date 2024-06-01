@@ -6,7 +6,7 @@
 /*   By: ysbai-jo <ysbai-jo@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 14:30:50 by ysbai-jo          #+#    #+#             */
-/*   Updated: 2024/06/01 14:25:55 by ysbai-jo         ###   ########.fr       */
+/*   Updated: 2024/06/01 16:04:29 by ysbai-jo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static void	init(t_pipex *core, char *av[], int ac, char *env[])
 
 void	parser(int ac, char *av[], t_pipex *core, char *env[])
 {
-	if (ft_strlen(av[1]) == 8 && !ft_strncmp(av[1], "here_doc", 8))
+	if (ac > 1 && ft_strlen(av[1]) == 8 && !ft_strncmp(av[1], "here_doc", 8))
 	{
 		if (ac != 6)
 		{
