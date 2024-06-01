@@ -162,7 +162,7 @@ fclean: clean
 		@sleep 0.2
 
 
-re: fclean all bonus
+re: fclean all
 
 bre: fclean bonus
 

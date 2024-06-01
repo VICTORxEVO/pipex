@@ -6,7 +6,7 @@
 /*   By: ysbai-jo <ysbai-jo@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 15:00:16 by ysbai-jo          #+#    #+#             */
-/*   Updated: 2024/05/30 18:51:03 by ysbai-jo         ###   ########.fr       */
+/*   Updated: 2024/06/01 15:39:39 by ysbai-jo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 // some macros
 # define WRITE_SIDE 1
 # define READ_SIDE 0
+# define CHILD 0
 
 // needed structs
 typedef struct s_cmd
