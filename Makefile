@@ -137,9 +137,10 @@ $(obj_dir)/%.o: $(src)
 
 bonus: $(obj_b)
 		@$(CCF) $(INC) $^ -o $(NAME_B)
-		@echo "compiling"
-		@sleep 0.5
-		@echo "$(NAME_B) is ready"
+		@echo  -n "$(RETURN)$(BOLD_GREEN)Building the program... $(RESET)$(CLEAR)"
+		@sleep 0.68
+		@echo -n "$(RETURN)$(CLEAR)"
+		@echo "$(BOLD_UNDER_GREEN)>>>$(NAME_B) PROGRAM IS READY<<<$(RESET)\n$(YELLOW)Usage: ./pipex infile cmd1 cmd2... cmd_n outfile $(RESET)"
 
 $(obj_dir_b)/%.o: $(src_b)
 		@mkdir -p $(obj_dir_b)
