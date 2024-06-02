@@ -6,7 +6,7 @@
 /*   By: ysbai-jo <ysbai-jo@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 14:35:19 by ysbai-jo          #+#    #+#             */
-/*   Updated: 2024/05/28 14:35:20 by ysbai-jo         ###   ########.fr       */
+/*   Updated: 2024/06/02 18:23:27 by ysbai-jo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,6 @@ void	*malloc_v1e2(size_t size, t_pipex *core)
 
 	data = malloc(size);
 	if (!data)
-		(perror("pipex: malloc:"), destroy(core));
+		(perror("pipex: malloc"), destroy(core));
 	return (data);
 }

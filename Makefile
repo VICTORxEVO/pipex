@@ -144,9 +144,9 @@ $(obj_dir_b)/%.o: $(src_b)
 
 
 clean:
-		@echo  -n "$(YELLOW)Cleaning up...$(RESET)$(CLEAR)$(RETURN)"
 		@rm -rf $(obj_dir) $(obj_dir_b)
 		@rm -f $(obj) $(obj_b)
+		@echo  -n "$(YELLOW)Cleaning up...$(RESET)$(CLEAR)$(RETURN)"
 		@sleep 0.60
 
 

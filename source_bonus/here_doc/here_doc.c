@@ -6,7 +6,7 @@
 /*   By: ysbai-jo <ysbai-jo@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 14:30:18 by ysbai-jo          #+#    #+#             */
-/*   Updated: 2024/06/02 16:14:53 by ysbai-jo         ###   ########.fr       */
+/*   Updated: 2024/06/02 18:22:58 by ysbai-jo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	here_doc(t_pipex *core)
 	{
 		pid = fork();
 		if (pid < 0)
-			(destroy(core), peexit("pipex: ", 1, 'P', false));
+			(destroy(core), peexit("pipex", 1, 'P', false));
 		if (pid == CHILD)
 			child_action(core);
 		core->pids[core->i] = pid;
