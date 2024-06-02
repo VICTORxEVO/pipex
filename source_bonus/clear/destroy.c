@@ -6,7 +6,7 @@
 /*   By: ysbai-jo <ysbai-jo@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 14:29:15 by ysbai-jo          #+#    #+#             */
-/*   Updated: 2024/05/28 14:29:17 by ysbai-jo         ###   ########.fr       */
+/*   Updated: 2024/06/02 14:35:06 by ysbai-jo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,4 +31,6 @@ void	destroy(t_pipex *core)
 	if (core->pids)
 		free(core->pids);
 	free_2d((void **)core->pipe);
+	if (core->is_her_doc && core->in_fd)
+		free(core->f_in);
 }

@@ -6,7 +6,7 @@
 /*   By: ysbai-jo <ysbai-jo@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 11:05:34 by ysbai-jo          #+#    #+#             */
-/*   Updated: 2024/06/01 15:38:22 by ysbai-jo         ###   ########.fr       */
+/*   Updated: 2024/06/02 12:43:00 by ysbai-jo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,6 @@ void				verify_cmd(char *path, char *cmd, t_pipex *core);
 void				dup2fd(int oldfd, int newfd, t_pipex *core);
 void				prepere_in_out(t_pipex *core);
 void				check_fin_fout(t_pipex *core);
-void				seal_unused_p(t_pipex *core);
 char				*get_valid_path(t_pipex *core, char **duptfull_paths);
 
 // parsing functions

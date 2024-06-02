@@ -6,7 +6,7 @@
 /*   By: ysbai-jo <ysbai-jo@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 14:29:02 by ysbai-jo          #+#    #+#             */
-/*   Updated: 2024/05/28 14:29:03 by ysbai-jo         ###   ########.fr       */
+/*   Updated: 2024/06/02 16:36:56 by ysbai-jo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@ void	check_fin_fout(t_pipex *core)
 	if (!core->i)
 	{
 		if (access(core->f_in, F_OK) || access(core->f_in, R_OK))
-			(destroy(core), peexit(ft_strjoin("pipex: ", core->f_in, 'N', core),
-					1, 'P', true));
+			(puterr("pipex: "), puterr(core->f_in), destroy(core), peexit("", 1,
+					'P', false));
 		core->in_fd = open(core->f_in, O_RDONLY);
 		if (core->in_fd < 0)
-			(destroy(core), peexit(ft_strjoin("pipex: ", core->f_in, 'N', core),
-					1, 'P', true));
+			(puterr("pipex: "), puterr(core->f_in), destroy(core), peexit("", 1,
+					'P', false));
 	}
 	else if (core->i == core->n_pipes)
 	{
