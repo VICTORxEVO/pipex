@@ -6,7 +6,7 @@
 /*   By: ysbai-jo <ysbai-jo@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 14:30:47 by ysbai-jo          #+#    #+#             */
-/*   Updated: 2024/05/28 14:30:48 by ysbai-jo         ###   ########.fr       */
+/*   Updated: 2024/06/05 14:48:38 by ysbai-jo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@ char	**get_paths(char **env, t_pipex *core)
 	char	**path;
 
 	i = -1;
-	while (env[++i])
+	while (env && env[++i])
 	{
 		if (!ft_strncmp(env[i], "PATH=", 5))
 		{
-			path = ft_split(ft_strchr(env[i], '/'), ':', core);
-			if (!path)
-				return (NULL);
+			path = ft_split(env[i] + 5, ':', core);
+			if (!path || !path[0][0])
+				return (free_2d((void **)path), NULL);
 			i = -1;
 			while (path[++i])
 				path[i] = ft_strjoin(path[i], "/", 'L', core);

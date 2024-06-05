@@ -6,7 +6,7 @@
 /*   By: ysbai-jo <ysbai-jo@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 11:50:16 by ysbai-jo          #+#    #+#             */
-/*   Updated: 2024/05/28 14:34:13 by ysbai-jo         ###   ########.fr       */
+/*   Updated: 2024/06/05 12:49:24 by ysbai-jo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ char	**ft_split(const char *s, char c, t_pipex *core)
 	int		wn;
 	int		i;
 
-	if (!*s || !s || is_all_spaces(s))
+	if (!s || !*s || is_all_spaces(s))
 		return (handle_null_spaces(core, s));
 	wn = word_num(s, c);
 	arr = malloc_v1e2(sizeof(char *) * (wn + 1), core);
