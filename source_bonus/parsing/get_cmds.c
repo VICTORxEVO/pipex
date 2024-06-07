@@ -6,7 +6,7 @@
 /*   By: ysbai-jo <ysbai-jo@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 14:30:44 by ysbai-jo          #+#    #+#             */
-/*   Updated: 2024/05/28 14:34:13 by ysbai-jo         ###   ########.fr       */
+/*   Updated: 2024/06/06 20:24:06 by ysbai-jo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ t_cmd	*get_cmds(int n_cmd, char *av[], t_pipex *core)
 	{
 		to_check = add_new_cmd(av[i], &cmd_node, core);
 		to_check->duptfull_paths = NULL;
-		if (ft_strchr(to_check->cmd_and_args[0], '/') || av[i][0] == '.')
+		if (ft_strchr(to_check->cmd_and_args[0], '/'))
 			continue ;
 		to_check->duptfull_paths = get_full_path(core->path,
 				to_check->cmd_and_args[0], core);
